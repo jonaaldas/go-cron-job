@@ -25,6 +25,7 @@ func connectToDB() {
 	password := os.Getenv("PASSWORD")
 	host := os.Getenv("HOST")
 	database := fmt.Sprintf("user=%s dbname=%s password=%s host=%s sslmode=disable", user, dataBaseName, password, host)
+	fmt.Print(database)
 
 	db, err := sqlx.Connect("postgres", database)
 	if err != nil {
