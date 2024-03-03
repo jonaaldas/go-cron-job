@@ -67,4 +67,5 @@ func goDotEnvVariable(key string) string {
 
 func main() {
 	runCronJobs()
+	select {}
 }
