@@ -16,10 +16,14 @@ type RestaurantId struct {
 }
 
 func connectToDB() {
-	user := goDotEnvVariable("DB_USER")
-	dataBaseName := goDotEnvVariable("DATA_BASE_NAME")
-	password := goDotEnvVariable("PASSWORD")
-	host := goDotEnvVariable("HOST")
+	// user := goDotEnvVariable("DB_USER")
+	// dataBaseName := goDotEnvVariable("DATA_BASE_NAME")
+	// password := goDotEnvVariable("PASSWORD")
+	// host := goDotEnvVariable("HOST")
+	user := os.Getenv("DB_USER")
+	dataBaseName := os.Getenv("DATA_BASE_NAME")
+	password := os.Getenv("PASSWORD")
+	host := os.Getenv("HOST")
 	database := fmt.Sprintf("user=%s dbname=%s password=%s host=%s sslmode=disable", user, dataBaseName, password, host)
 
 	db, err := sqlx.Connect("postgres", database)
